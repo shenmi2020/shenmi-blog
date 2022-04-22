@@ -104,4 +104,6 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: git@github.com:shenmi2020/shenmi2020.github.io.git
+  branch: master

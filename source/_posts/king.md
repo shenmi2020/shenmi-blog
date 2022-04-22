@@ -1,7 +1,7 @@
 ---
 title: 李白
 date: 2022-04-22 09:23:43
-categories: [糊涂1]
+categories: [糊涂]
 tags:
   - php
   - java
