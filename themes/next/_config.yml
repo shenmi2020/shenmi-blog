@@ -367,16 +367,16 @@ codeblock:
   # Code Highlight theme
   # All available themes: https://theme-next.js.org/highlight/
   theme:
-    light: default
-    dark: stackoverflow-dark
+    light: github-dark-dimmed
+    dark: github-dark-dimmed
   prism:
     light: prism
     dark: prism-dark
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Available values: default | flat | mac
-    style:
+    style: mac
 
 back2top:
   enable: true
@@ -439,7 +439,7 @@ font:
   global:
     external: true
     family:
-    size:
+    size: 1.1
 
   # Font settings for site title (.site-title).
   title:
