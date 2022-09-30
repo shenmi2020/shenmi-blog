@@ -7,13 +7,14 @@ tags:
  - [docker]
 ---
 
-<!-- more -->
 因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下
 
 先安装好docker，这里不做记录
 1.去https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令
 docker pull php:8.2-rc-cli-buster
 ps: 下载慢可以配置docker镜像，如阿里云和163等
+
+<!-- more -->
 
 2.docker run -t -i php:8.2 /bin/bash
 这里最好配置好端口映射-p: 指定端口映射，格式为：主机(宿主)端口:容器端口
