@@ -1,6 +1,7 @@
 ---
 title: 解决Linux下杀死进程又自启动问题
 date: 2023-01-28 17:15:22
+categories: [编程]
 tags:
  - [ubuntu]
 ---
