@@ -6,7 +6,10 @@ tags:
  - [php]
  - [redis]
 ---
+基于redis的setnx实现
+在高并发下可以减少直接请求数据库。
 <!-- more -->
+
 ``` php
 function getRedis()
 {
@@ -64,4 +67,3 @@ function getArticleInCache($id)
     }
 }
 ```
-在高并发下可以减少直接请求数据库。
