@@ -18,3 +18,6 @@ adb disconnect IP
 
 打开chrome浏览器adb调试工具
 chrome://inspect/#devices
+
+打印日志
+adb shell logcat -v threadtime  >  你的目录
