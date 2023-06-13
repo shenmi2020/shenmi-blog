@@ -68,7 +68,7 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-  糊涂: hutu
+  日记: hutu
   编程: biancheng
 tag_map:
 

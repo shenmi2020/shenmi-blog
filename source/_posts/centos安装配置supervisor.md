@@ -1,6 +1,7 @@
 ---
 title: centos安装配置supervisor
 date: 2023-04-21 16:02:45
+categories: [编程]
 tags:
  - [centos]
 ---
