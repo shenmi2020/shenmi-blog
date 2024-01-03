@@ -1,6 +1,7 @@
 ---
 title: nginx-failed错误
 date: 2023-10-26 10:39:45
+categories: [编程]
 tags:
  - [nginx]
 ---
