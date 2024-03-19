@@ -5,9 +5,9 @@ categories: [编程]
 tags:
  - [php]
 ---
-<!-- more -->
-记录一下啊使用php反射特性来记录操作日志
 
+记录一下啊使用php反射特性来记录操作日志
+<!-- more -->
 ``` php
 
 $re = new ReflectionClass(CLASS);

@@ -1,8 +1,15 @@
 ---
 title: 编译安装php7.4
-date: 2024-03-07 14:35:36
+date: 2024-03-01 14:35:36
+categories: [编程]
 tags:
+ - [php]
 ---
+
+编译安装命令记录
+
+<!-- more -->
+
 ``` shell
 ./configure \
 --prefix=/usr/local/php \
