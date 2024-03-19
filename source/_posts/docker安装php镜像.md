@@ -7,7 +7,6 @@ tags:
  - [docker]
 ---
 
-因工作需要使用两种php版本，考虑使用docker来部署环境，几年前简单学习过docker现在已经忘干净了，再来学习下
 
 先安装好docker，这里不做记录
 1.去https://hub.docker.com/_/php/tags查询自己需要的版本，复制命令
@@ -67,3 +66,64 @@ docker-php-ext-configure
 docker-php-ext-enable  启用扩展
 docker-php-ext-install 安装扩展
 
+pecl install redis
+docker-php-ext-enable redis
+------
+checking for libpng... no
+configure: error: Package requirements (libpng) were not met:
+ 
+No package 'libpng’ found
+
+apt-get install libpng-dev
+
+configure: error: Package requirements (zlib >= 1.2.0.4) were not met:
+ 
+No package 'zlib’ found 
+
+apt-get install zlib1g-dev
+
+----
+kill -USR2 1  容器内重启php-fpm
+
+fastcgi_param SCRIPT_FILENAME /var/www/html$fastcgi_script_name;  // nginx修改配置
+
+// 安装composer
+curl -sS https://getcomposer.org/installer | php
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
+
+docker run -itd --name php7.4-fpm-c2  -v /var/www/wwwdata:/var/www/html -v /var/docker/php/etc:/usr/local/etc -v /var/docker/php/supervisor/conf.d:/etc/supervisor/conf.d -v /var/docker/php/supervisor/log:/var/www/log -p 19001:9000 --privileged=true --restart=always weixiao/php:7.4.33-fpm /bin/bash
+
+
+server {
+        listen 8081;
+        listen [::]:8081;
+
+        server_name _;
+
+        root /var/www/wwwdata/cloud_school_php/public;
+        index index.html index.php;
+
+        location / {
+                #if (!-e $request_filename) {
+                #       rewrite  ^(.*)$  /index.php?s=/$1  last;
+                #}
+            if (!-e $request_filename) {
+                rewrite  ^(.*)$  /index.php?s=$1  last;
+                break;
+            }
+        }
+
+        location ~ \.php$ {
+                fastcgi_index index.php;
+                root /var/www/html/cloud_school_php/public;
+                #include snippets/fastcgi-php.conf;
+                fastcgi_split_path_info ^(.+\.php)(.*)$;
+                fastcgi_param PATH_INFO $fastcgi_path_info;   #使nginx支持pathinfo
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+               
+                include  fastcgi_params;
+               
+                fastcgi_pass 127.0.0.1:19000;
+        }
+}
